@@ -1,3 +1,4 @@
+
 'use strict';
 
 module.exports=(students)=>(req,res,next)=>{
@@ -14,3 +15,5 @@ module.exports=(students)=>(req,res,next)=>{
     })
     .catch((err) => next('Invalid login'))
 }
+'use strict'
+
