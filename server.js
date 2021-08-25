@@ -21,6 +21,11 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })
+
+app.get('/bad', (req, res, next) => {
+    next('error from bad end point');
+});
+
 app.use(routes)
 app.use(coursesImplementation)
 // app.use(courseImplementation)
@@ -30,7 +35,7 @@ app.use(basicAuth)
 app.use(bearerAuth)
 
 
-app.use('*', notFoundHandler);
+app.use(notFoundHandler);
 app.use(errorHandler);
 
 module.exports = {
