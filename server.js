@@ -19,12 +19,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
 
-app.get('/bad', (req, res, next) => {
-    next('error from bad end point');
+    res.status(200).send('Hello World!')
 });
+
 
 app.use(routes)
 app.use(coursesImplementation)
