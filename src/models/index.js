@@ -1,5 +1,6 @@
 'use strict';
 
+
 const { Sequelize, DataTypes } = require('sequelize');
 
 const courseModel = require('./courses');
@@ -21,4 +22,5 @@ module.exports={
     users:userSchema(sequelize,DataTypes)
 
 }
+
 
