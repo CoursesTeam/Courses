@@ -17,7 +17,8 @@ router.param('model', (req, res, next) => {
       req.model = dataModules[modelName];
       next();
     } else {
-      next('Invalid Model');
+      // next('Invalid Model');
+      res.status(404).send('Not Found')
     }
   });
 
