@@ -17,7 +17,7 @@ describe('express server', () => {
   it('shoud check 404 errors', async () => {
     //arange
     let param = '/notfound';
-    let status = 500;
+    let status = 404;
     //act
     const response = await request.get(param);
     // assert
