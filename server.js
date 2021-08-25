@@ -19,8 +19,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+    res.status(200).send('Hello World!')
+});
+
+
 app.use(routes)
 app.use(coursesImplementation)
 // app.use(courseImplementation)
