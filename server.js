@@ -12,8 +12,12 @@ const basicAuth = require('./src/middleware/basic-auth');
 const bearerAuth = require('./src/middleware/bearer-auth');
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 
+app.use(acl)
+app.use(basicAuth)
+app.use(bearerAuth)
 
 
 app.use('*', notFoundHandler);
