@@ -2,8 +2,8 @@
 
 module.exports=(capability)=>{
     return(req,res,next)=>{
-        if(req.student.capability.includes(capability)) {
-            console.log('Acl this student has capability to :', req.student.capability);
+        if(req.user.capabilities.includes(capability)) {
+            console.log('Acl this student has capability to :', req.user.capabilities);
             next()
         }else{
             next('Acsses Denied')
