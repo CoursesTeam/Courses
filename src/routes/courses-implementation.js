@@ -22,9 +22,9 @@ router.param('model', (req, res, next) => {
     }
   });
 
-router.get('/:model',bearerAuth, handleGetAll);
-router.get('/:model/:id',bearerAuth, handleGetOne);
-router.post('/:model',handleCreate);
+router.get('/:model', handleGetAll);
+router.get('/:model/:id', handleGetOne);
+router.post('/:model',bearerAuth,acl('create'),handleCreate);
 router.put('/:model/:id',handleUpdate);
 router.delete('/:model/:id', handleDelete);
 router.patch('/:model/:id',bearerAuth, handleUpdate);

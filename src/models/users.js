@@ -3,6 +3,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const SECRET = process.env.JWT_SECRET || 'super-secret';
+
 const userSchema = (sequelize, DataTypes) => {
   const model = sequelize.define('User', {
     username: { type: DataTypes.STRING, allowNull: false, unique: true },
