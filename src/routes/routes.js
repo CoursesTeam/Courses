@@ -21,18 +21,6 @@ authRouter.post('/signup', async (req, res, next) => {
         next(e.message)
     }
 });
-authRouter.post('/signin', basicAuth, (req, res, next) => {
-    const user = {
-      user: req.user,
-      token: req.user.token
-    };
-    res.status(200).json(user);
-  });
-  
-  authRouter.get('/users', bearerAuth, acl('delete'), async (req, res, next) => {
-    const userRecords = await users.findAll({});
-    const list = userRecords.map(user => user.username);
-})
 
 authRouter.post('/signin',basicAuth, async (req, res, next) => {
     try {
@@ -46,7 +34,7 @@ authRouter.post('/signin',basicAuth, async (req, res, next) => {
     }
 })
 
-authRouter.get('/users', bearerAuth,acl('read'), async (req, res, next) => {
+authRouter.get('/user', bearerAuth,acl('read'), async (req, res, next) => {
     const userRecord = await users.findAll({});
     const list = userRecord.map(user => user.username);
     res.status(200).json(list);
